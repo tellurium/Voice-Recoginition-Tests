@@ -12,19 +12,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".tests.FirstTest"
-                  android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.TEST" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".tests.SecondTest" android:label="@string/app_name">
+        <activity android:name=".tests.VoiceTest1" android:label="@string/app_name">
           <intent-filter>
               <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.TEST" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".tests.VoiceTest2" android:label="@string/app_name">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.TEST" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest> 

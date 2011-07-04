@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Main</string>
+    <string name="app_name">Main Module Test</string>
+    <string name="speak_btn">Start</string>
+    <string name="voice_recognition_prompt">Please input your voice!</string>
 </resources>
