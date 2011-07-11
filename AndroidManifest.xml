@@ -5,6 +5,8 @@
       android:versionName="1.0">
     <uses-sdk android:minSdkVersion="4" />
     <application android:label="@string/app_name" android:icon="@drawable/icon">
+
+        <!-- Main Entry of this module test -->
         <activity android:name="Main"
                   android:label="@string/app_name">
             <intent-filter>
@@ -12,17 +14,49 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- First test, using 'RecognizerIntent' -->
         <activity android:name=".tests.VoiceTest1" android:label="@string/app_name">
           <intent-filter>
               <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.TEST" />
             </intent-filter>
         </activity>
+
+        <!-- Similiar to the VoiceTest1 -->
         <activity android:name=".tests.VoiceTest2" android:label="@string/app_name">
           <intent-filter>
               <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.TEST" />
             </intent-filter>
         </activity>
+
+        <!-- Using 'MediaRecorder' -->
+        <activity android:name=".tests.VoiceTest3" android:label="@string/app_name">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.TEST" />
+            </intent-filter>
+        </activity>
+
+
+
+
+
+
+
+
+        <!-- A little test -->
+        <activity android:name=".tests.LittleTest1" android:label="@string/app_name">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.TEST" />
+            </intent-filter>
+        </activity>
     </application>
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 </manifest> 

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <item type="id" name="LinearLayout01">false</item>
-    <item type="id" name="start_btn">false</item>
-    <item type="id" name="stop_btn">false</item>
-    <item type="id" name="pause_btn">false</item>
-    <item type="id" name="what_btn">false</item>
-    <item type="id" name="words_list">false</item>	
-    <item type="id" name="speak_btn">false</item>
+    <item type="id" name="test1_words_list">false</item>
+    <item type="id" name="test2_words_list">false</item>
+    <item type="id" name="test3_words_list">false</item>
+    <item type="id" name="test1_speak_btn">false</item>
+    <item type="id" name="test2_speak_btn">false</item>
+    <item type="id" name="test3_speak_btn">false</item>
+    <item type="id" name="test3_stop_btn">false</item>
+   	<item type="id" name="littletest1_timerview">false</item>
 </resources>

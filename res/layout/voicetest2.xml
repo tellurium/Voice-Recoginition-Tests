@@ -9,14 +9,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="4dip"
-        android:text="@string/voice_recognition_prompt" />
+        android:text="@string/test2_voice_recognition_prompt" />
 
-    <Button android:id="@id/speak_btn"
+    <Button android:id="@id/test2_speak_btn"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/speak_btn" />
 
-    <ListView android:id="@id/words_list"
+    <ListView android:id="@id/test2_words_list"
         android:layout_width="fill_parent"
         android:layout_height="0dip"
         android:layout_weight="1" />

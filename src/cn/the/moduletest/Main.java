@@ -24,8 +24,8 @@ public class Main extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setListAdapter(new SimpleAdapter(this,
-        		(List<Map<String, ?>>)getTestsActivities("cn.the.moduletest.tests"),
+        setListAdapter(new SimpleAdapter(this, //getTestsActivities("com.android.soundrecorder"), //can get the soundrecorder app
+        		(List<Map<String, ?>>) getTestsActivities("cn.the.moduletest.tests"),
         		android.R.layout.simple_list_item_1, new String[]{"title"},
         		new int[]{android.R.id.text1}));
         getListView().setTextFilterEnabled(true);

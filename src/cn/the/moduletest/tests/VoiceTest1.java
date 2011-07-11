@@ -15,7 +15,6 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import cn.the.moduletest.R;
 
 public class VoiceTest1 extends Activity implements OnClickListener {
@@ -31,8 +30,8 @@ public class VoiceTest1 extends Activity implements OnClickListener {
 		//Show UIs
 		setContentView(R.layout.voicetest1);
 
-		Button speak_btn = (Button) findViewById(R.id.speak_btn);
-		mList = (ListView) findViewById(R.id.words_list);
+		Button speak_btn = (Button) findViewById(R.id.test1_speak_btn);
+		mList = (ListView) findViewById(R.id.test1_words_list);
 
 		PackageManager pm = getPackageManager();
 		List<ResolveInfo> activities = pm.queryIntentActivities(
@@ -50,7 +49,7 @@ public class VoiceTest1 extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-			case R.id.speak_btn:
+			case R.id.test1_speak_btn:
 				startVoiceRecognition();
 				break;	
 			default:

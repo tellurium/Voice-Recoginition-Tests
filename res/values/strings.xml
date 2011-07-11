@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Main Module Test</string>
     <string name="speak_btn">Start</string>
-    <string name="voice_recognition_prompt">Please input your voice!</string>
+    <string name="test1_voice_recognition_prompt">Please input your voice!(Test 1)</string>
+    <string name="test2_voice_recognition_prompt">Please input your voice!(Test 2)</string>
+    <string name="test3_voice_recognition_prompt">Please input your voice!(Test 3)</string>
+    <string name="stop_btn">Stop</string>
+
+    <!-- label shown when there is more than 1 minute but less than 9 minutes of space left to record -->
+    <string name="min_available"><xliff:g id="minutes">%d</xliff:g> min available</string>
+    <!-- label shown when there is less than 1 minute of space left to record -->
+    <string name="sec_available"><xliff:g id="seconds">%d</xliff:g>s available</string>
 </resources>

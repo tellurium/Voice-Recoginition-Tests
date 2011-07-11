@@ -29,10 +29,10 @@ public class VoiceTest2 extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 
 		//Show UIs
-		setContentView(R.layout.voicetest1);
+		setContentView(R.layout.voicetest2);
 
-		Button speak_btn = (Button) findViewById(R.id.speak_btn);
-		mList = (ListView) findViewById(R.id.words_list);
+		Button speak_btn = (Button) findViewById(R.id.test2_speak_btn);
+		mList = (ListView) findViewById(R.id.test2_words_list);
 
 		PackageManager pm = getPackageManager();
 		List<ResolveInfo> activities = pm.queryIntentActivities(
@@ -50,7 +50,7 @@ public class VoiceTest2 extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-			case R.id.speak_btn:
+			case R.id.test2_speak_btn:
 				startVoiceRecognition();
 				break;	
 			default:
