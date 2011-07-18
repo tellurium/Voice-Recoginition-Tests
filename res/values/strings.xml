@@ -5,6 +5,7 @@
     <string name="test1_voice_recognition_prompt">Please input your voice!(Test 1)</string>
     <string name="test2_voice_recognition_prompt">Please input your voice!(Test 2)</string>
     <string name="test3_voice_recognition_prompt">Please input your voice!(Test 3)</string>
+    <string name="test4_voice_recognition_prompt">Please input your voice!(Test 4)</string>
     <string name="stop_btn">Stop</string>
 
     <!-- label shown when there is more than 1 minute but less than 9 minutes of space left to record -->

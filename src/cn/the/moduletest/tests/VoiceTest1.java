@@ -46,6 +46,7 @@ public class VoiceTest1 extends Activity implements OnClickListener {
 		
 	}
 
+
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {

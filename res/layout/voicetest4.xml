@@ -6,22 +6,29 @@
     >
 
     <TextView
+        android:id="@id/text_view"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="4dip"
-        android:text="@string/test3_voice_recognition_prompt" />
+        android:text="@string/test4_voice_recognition_prompt" />
 
-    <Button android:id="@id/test3_speak_btn"
+    <Button android:id="@id/test4_speak_btn"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/speak_btn" />
 
-    <Button android:id="@id/test3_play_btn"
+    <Button android:id="@id/test4_stop_btn"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Play" />
+        android:text="@string/stop_btn" />
+    
+    <Button android:id="@id/test4_play_btn"
+        android:text="play"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
 
-    <ListView android:id="@id/test3_words_list"
+    <ListView android:id="@id/test4_words_list"
         android:layout_width="fill_parent"
         android:layout_height="0dip"
         android:layout_weight="1" />

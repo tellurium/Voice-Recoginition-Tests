@@ -5,7 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.view.View.OnClickListener;
-import android.media.MediaRecorder;
+import android.util.Log;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.content.Intent;
 import android.util.Log;
 
 import java.io.IOException;
@@ -13,14 +18,11 @@ import java.io.File;
 
 import cn.the.moduletest.R;
 
-public class VoiceTest3 extends Activity implements OnClickListener {
+public class VoiceTest3 extends Activity implements OnClickListener, OnCompletionListener {
 	
-	//Initialize the recorder
-	private MediaRecorder recorder;
-	private Button speak_btn;
-	private Button stop_btn;
-
-	private static final String PATH = "/sdcard/HJenglish";
+	private static final int RECORD_QUEST = 8888;
+	private Button speak_btn, play_btn;
+	private Uri audioFileUri;
 
 
 	@Override
@@ -31,29 +33,9 @@ public class VoiceTest3 extends Activity implements OnClickListener {
 
 		speak_btn = (Button)findViewById(R.id.test3_speak_btn);
 		speak_btn.setOnClickListener(this);
-		stop_btn = (Button)findViewById(R.id.test3_stop_btn);
-		stop_btn.setOnClickListener(this);
-
-		recorder = new MediaRecorder();
-		recorder.setAudioSource(MediaRecorder.AudioSource.MIC); //set microphone
-		recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP); // set output format
-		recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB); // set encoder
-
-		File dir = new File(PATH);
-		if (!dir.exists()) {
-			Log.d("voicetest3-oncreate", "in dir exist");
-			dir.mkdir();
-		}
-		File temp = new File(PATH, "test.3gp");
-		if (!temp.exists()) {
-			Log.d("voicetest3-oncreate", "in dir exist");
-			try {
-				temp.createNewFile();				
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		
+		play_btn = (Button)findViewById(R.id.test3_play_btn);
+		play_btn.setOnClickListener(this);
+		play_btn.setEnabled(false);
 
 
 	}
@@ -62,24 +44,32 @@ public class VoiceTest3 extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.test3_speak_btn:
-				try {
-					recorder = new MediaRecorder();
-					recorder.setAudioSource(MediaRecorder.AudioSource.MIC); //set microphone
-					recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP); // set output format
-					recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB); // set encoder
-					recorder.setOutputFile(PATH + "/test.3gp"); // set output file path
-					recorder.prepare();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				recorder.start();		
+				//call the default recorder application "SoundRecorder"
+				Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
+				startActivityForResult(intent, RECORD_QUEST);
 				break;
-			case R.id.test3_stop_btn:
-				recorder.stop();
-				recorder.release();
+			case R.id.test3_play_btn:
+				MediaPlayer mPlayer = MediaPlayer.create(this, audioFileUri);
+				mPlayer.setOnCompletionListener(this);
+				mPlayer.start();
+				play_btn.setEnabled(false);
 				break;
 			default:
 				break;
+		}
+	}
+
+	@Override
+	public void onCompletion(MediaPlayer mp) {
+		play_btn.setEnabled(true);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == RESULT_OK && requestCode == RECORD_QUEST) {
+			audioFileUri = data.getData();
+			play_btn.setEnabled(true);
+			Log.d("VoiceTest3", audioFileUri.toString());
 		}
 	}
 }

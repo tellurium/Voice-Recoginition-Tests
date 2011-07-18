@@ -3,9 +3,15 @@
     <item type="id" name="test1_words_list">false</item>
     <item type="id" name="test2_words_list">false</item>
     <item type="id" name="test3_words_list">false</item>
+    <item type="id" name="test4_words_list">false</item>
     <item type="id" name="test1_speak_btn">false</item>
     <item type="id" name="test2_speak_btn">false</item>
     <item type="id" name="test3_speak_btn">false</item>
+    <item type="id" name="test4_speak_btn">false</item>
     <item type="id" name="test3_stop_btn">false</item>
+    <item type="id" name="test4_stop_btn">false</item>
+    <item type="id" name="test3_play_btn">false</item>
+    <item type="id" name="test4_play_btn">false</item>
    	<item type="id" name="littletest1_timerview">false</item>
+    <item type="id" name="text_view">false</item>
 </resources>

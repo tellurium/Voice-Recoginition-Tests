@@ -31,8 +31,24 @@
             </intent-filter>
         </activity>
 
-        <!-- Using 'MediaRecorder' -->
+        <!-- Using intent to call the default recorder application -->
         <activity android:name=".tests.VoiceTest3" android:label="@string/app_name">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.TEST" />
+            </intent-filter>
+        </activity>
+
+        <!-- Using "MicrophoneInputStream" -->
+        <activity android:name=".tests.VoiceTest4" android:label="@string/app_name">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.TEST" />
+            </intent-filter>
+        </activity>
+
+        <!-- Using "Recorder.java" -->
+        <activity android:name=".tests.VoiceTest5" android:label="@string/app_name">
           <intent-filter>
               <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.TEST" />

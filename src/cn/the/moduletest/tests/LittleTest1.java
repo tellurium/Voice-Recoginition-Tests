@@ -18,7 +18,7 @@ public class LittleTest1 extends Activity {
 	// private Handler mHandler;
 	// private Runnable mTask;
 
-	private TextView timerView;
+	private TextView timerView;	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class LittleTest1 extends Activity {
 	/*
 	 * Initialize default value
 	 */
-	 private void initDefaultValue() {
+	private void initDefaultValue() {
 	 	String text1 = Environment.getDataDirectory().toString();
 	 	String text2 = Environment.getDownloadCacheDirectory().toString();
 	 	String text3 = Environment.getExternalStorageDirectory().toString();
@@ -71,7 +71,7 @@ public class LittleTest1 extends Activity {
 	 	// 	}
 	 	// };
 
-	 }
+	}
 
 
 	@Override
