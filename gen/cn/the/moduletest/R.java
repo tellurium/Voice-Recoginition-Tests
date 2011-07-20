@@ -40,12 +40,6 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f050000;
-        /**  label shown when there is more than 1 minute but less than 9 minutes of space left to record 
-         */
-        public static final int min_available=0x7f050007;
-        /**  label shown when there is less than 1 minute of space left to record 
-         */
-        public static final int sec_available=0x7f050008;
         public static final int speak_btn=0x7f050001;
         public static final int stop_btn=0x7f050006;
         public static final int test1_voice_recognition_prompt=0x7f050002;

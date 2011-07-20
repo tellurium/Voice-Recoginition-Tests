@@ -8,8 +8,5 @@
     <string name="test4_voice_recognition_prompt">Please input your voice!(Test 4)</string>
     <string name="stop_btn">Stop</string>
 
-    <!-- label shown when there is more than 1 minute but less than 9 minutes of space left to record -->
-    <string name="min_available"><xliff:g id="minutes">%d</xliff:g> min available</string>
-    <!-- label shown when there is less than 1 minute of space left to record -->
-    <string name="sec_available"><xliff:g id="seconds">%d</xliff:g>s available</string>
+    
 </resources>

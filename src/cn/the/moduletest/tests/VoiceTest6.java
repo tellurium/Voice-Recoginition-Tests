@@ -8,24 +8,27 @@ import android.widget.TextView;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.media.MediaRecorder;
-import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Environment;
 import android.media.MediaPlayer;
 
+import android.speech.srec.MicrophoneInputStream;
+import android.speech.srec.Recognizer;
+import android.speech.srec.Recognizer.Grammar;
+import android.speech.srec.WaveHeader;
+import android.speech.srec.UlawEncoderInputStream;
+
 import java.io.File;
+import java.io.InputStream;
 
 import cn.the.moduletest.R;
 
-public class VoiceTest5 extends Activity implements OnClickListener, OnCompletionListener {
+public class VoiceTest6 extends Activity implements OnClickListener, OnCompletionListener {
 	
 	private Button speak_btn;
 	private Button stop_btn;
 	private Button play_btn;
 	private TextView mTextView;
-	private MediaRecorder mRecorder;
-	private MediaPlayer mPlayer;
 	private File audioFile;
 
 	@Override
@@ -42,23 +45,7 @@ public class VoiceTest5 extends Activity implements OnClickListener, OnCompletio
 		speak_btn.setOnClickListener(this);
 		stop_btn.setOnClickListener(this);
 		play_btn.setOnClickListener(this);
-		mTextView.setText("Test 5");
-
-		mRecorder = new MediaRecorder();
-		mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-		mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-		mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-		File path = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/YesHJ/voicetest/");
-		path.mkdirs();
-		try {
-			audioFile = File.createTempFile("recording", ".3gp", path);			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		mRecorder.setOutputFile(audioFile.getAbsolutePath());
-
-		mPlayer = new MediaPlayer();
-		mPlayer.setOnCompletionListener(this);
+		mTextView.setText("Test 6");
 
 	}
 
@@ -86,36 +73,63 @@ public class VoiceTest5 extends Activity implements OnClickListener, OnCompletio
 
 	public void startRecording() {
 		try {
-			mRecorder.prepare();
+			InputStream audio = new MicrophoneInputStream(11025, 11025*5);
+			String cdir = Recognizer.getConfigDir(null);
+			mTextView.setText(cdir);
+			Recognizer mRecognizer = new Recognizer(cdir + "/baseline11k.par");
+			Recognizer.Grammar mGrammar = mRecognizer.new Grammar(cdir + "/grammers/VoiceDialer.g2g");
+			mGrammar.setupRecognizer();
+			mGrammar.resetAllSlots();
+			mGrammar.compile();
+			mRecognizer.start();
+			while(true){
+				switch (mRecognizer.advance()) {
+					case Recognizer.EVENT_INCOMPLETE:
+					case Recognizer.EVENT_STARTED:
+					case Recognizer.EVENT_START_OF_VOICING:
+					case Recognizer.EVENT_END_OF_VOICING:
+						continue;
+					case Recognizer.EVENT_RECOGNITION_RESULT:
+						for (int i = 0; i < mRecognizer.getResultCount(); i++) {
+							String result = mRecognizer.getResult(i, Recognizer.KEY_LITERAL);
+							log(result);
+							mTextView.setText(result);
+						}
+						break;
+					case Recognizer.EVENT_NEED_MORE_AUDIO:
+						mRecognizer.putAudio(audio);
+						continue;
+					default:
+					    break;
+				}
+				break;
+			}
+
+			mRecognizer.stop();
+            mRecognizer.destroy();
+            audio.close();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		mRecorder.start();
 
+		//String cdir = Recognizer.getConfigDir(null);
+		//mTextView.setText(cdir);
 		log("start");
 	}
 
 	public void stopRecording() {
-		mRecorder.stop();
-
-		mRecorder.release();
-
-		try {
-			mPlayer.setDataSource(audioFile.getAbsolutePath());
-			mPlayer.prepare();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 		log("stop");
 	}
 
 	public void playback() {
 		
-		mPlayer.start();		
+		
 		log("play");
 	}
 
 	public void log(String log) {
-		Log.d("voicetest5", log);
+		Log.d("voicetest6", log);
 	}
 }

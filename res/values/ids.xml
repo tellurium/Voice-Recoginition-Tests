@@ -12,6 +12,6 @@
     <item type="id" name="test4_stop_btn">false</item>
     <item type="id" name="test3_play_btn">false</item>
     <item type="id" name="test4_play_btn">false</item>
-   	<item type="id" name="littletest1_timerview">false</item>
+    <item type="id" name="littletest1_timerview">false</item>
     <item type="id" name="text_view">false</item>
 </resources>

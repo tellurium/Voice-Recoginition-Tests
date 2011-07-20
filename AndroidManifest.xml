@@ -55,6 +55,13 @@
             </intent-filter>
         </activity>
 
+        <!-- Using "Recognizer.java" -->
+        <activity android:name=".tests.VoiceTest6" android:label="@string/app_name">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.TEST" />
+            </intent-filter>
+        </activity>
 
 
 
