@@ -68,8 +68,8 @@ public class VoiceTest1 extends Activity implements OnClickListener {
 
 		/** 
 		 *	android Sample source code
-		 *  It doesn't work
-		 *  I don't know why
+		 *  It doesn't work on emulator 
+		 *  Maybe caused by the hardware things.
 		 */
 		Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,

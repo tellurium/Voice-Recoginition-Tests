@@ -64,8 +64,11 @@ public class VoiceTest2 extends Activity implements OnClickListener {
          *  Older version (android 1.1)
          *  Just have a test
          */
-        Intent intent = new Intent("android.speech.action.RECOGNIZE_SPEECH");
-        startActivityForResult(intent, 0);
+        // Intent intent = new Intent("android.speech.action.RECOGNIZE_SPEECH");
+        // startActivityForResult(intent, 0);
+
+        Intent intent = new Intent("android.speech.RecognitionService");
+        startService(intent);
 	}
 
 	@Override
